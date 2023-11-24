@@ -1876,8 +1876,8 @@ typedef struct {
 #define WDT_CR_RSTEN_Msk			(0x01 << WDT_CR_RSTEN_Pos)
 #define WDT_CR_INTEN_Pos			2
 #define WDT_CR_INTEN_Msk			(0x01 << WDT_CR_INTEN_Pos)
-#define WDT_CR_LOCK_Pos				3
-#define WDT_CR_LOCK_Msk				(0x01 << WDT_CR_LOCK_Pos)
+
+
 
 
 
