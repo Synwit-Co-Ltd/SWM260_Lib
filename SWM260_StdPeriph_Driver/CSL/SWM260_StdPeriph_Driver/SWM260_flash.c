@@ -61,7 +61,7 @@ uint32_t FLASH_Write(uint32_t addr, uint32_t buff[], uint32_t cnt)
 {	
 	uint32_t i;
 	
-	if((addr+cnt*4) >= 128*1024) return FLASH_RES_ERR;
+	if((addr+cnt*4) > 128*1024) return FLASH_RES_ERR;
 	
 	if(addr/2048 != (addr+(cnt-1)*4)/2048) return FLASH_RES_ERR;	// ¿çÒ³
 	
