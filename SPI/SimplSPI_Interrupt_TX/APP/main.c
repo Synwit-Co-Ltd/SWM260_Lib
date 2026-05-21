@@ -9,8 +9,7 @@ void SPIMstInit(void);
 void SPIMstSend(uint16_t buff[], uint32_t cnt);
 
 int main(void)
-{	
-	uint32_t i;
+{
 	uint16_t buff[16] = {0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
 	
 	SystemInit();
@@ -25,7 +24,7 @@ int main(void)
 	{
 		SPIMstSend(buff, 16);
 		
-		for(i = 0; i < SystemCoreClock/100; i++) __NOP();
+		SW_DelayMS(100);
 	}
 }
 

@@ -3,8 +3,7 @@
 void SerialInit(void);
 
 int main(void)
-{	
-	uint32_t i;
+{
 	uint32_t rxdata, txdata = 0x23;
 	SPI_InitStructure SPI_initStruct;
 	
@@ -38,7 +37,7 @@ int main(void)
 		
 		printf("rxdata: 0x%X\r\n", rxdata);
 		
-		for(i = 0; i < SystemCoreClock/10; i++);
+		SW_DelayMS(500);
 	}
 }
 

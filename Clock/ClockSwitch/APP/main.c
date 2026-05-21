@@ -6,13 +6,13 @@ void SystemInit_72MHz(void);
 
 int main(void)
 {
-	uint32_t i, j;
+	uint32_t i;
 	
 	SystemInit();
 	
 	SerialInit();
    	
-	printf("SystemCoreClock = %d\r\n", SystemCoreClock);
+	printf("SystemCoreClock = %dMHz\r\n", SystemCoreClock/1000000);
 	
 	while(1==1)
 	{
@@ -22,9 +22,9 @@ int main(void)
 		
 		for(i = 0; i < 4; i++)
 		{
-			printf("SystemCoreClock = %d\r\n", SystemCoreClock);
+			printf("SystemCoreClock = %dMHz\r\n", SystemCoreClock/1000000);
 			
-			for(j = 0; j < SystemCoreClock / 8; j++) __NOP();
+			SW_DelayMS(500);
 		}
 		
 		SystemInit();
@@ -33,9 +33,9 @@ int main(void)
 		
 		for(i = 0; i < 4; i++)
 		{
-			printf("SystemCoreClock = %d\r\n", SystemCoreClock);
+			printf("SystemCoreClock = %dMHz\r\n", SystemCoreClock/1000000);
 			
-			for(j = 0; j < SystemCoreClock / 8; j++) __NOP();
+			SW_DelayMS(500);
 		}
 	}
 }

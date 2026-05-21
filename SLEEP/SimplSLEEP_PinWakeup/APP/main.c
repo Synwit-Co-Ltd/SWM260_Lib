@@ -8,13 +8,11 @@
 
 int main(void)
 {
-	uint32_t i;
-	
 	SystemInit();
 	
 	GPIO_Init(GPIOA, PIN5, 1, 0, 0, 0);				//接 LED，指示程序执行状态
 	GPIO_SetBit(GPIOA, PIN5);						//点亮LED
-	for(i = 0; i < SystemCoreClock/2; i++);			//延时，防止上电后SWD立即切掉无法下载程序
+	SW_DelayMS(2000);			//延时，防止上电后SWD立即切掉无法下载程序
 	
 	GPIO_Init(GPIOA, PIN9, 0, 1, 0, 0);				//接按键，上拉使能
 	SYS->PAWKEN |= (1 << PIN9);						//开启PA9引脚低电平唤醒
@@ -24,7 +22,7 @@ int main(void)
 	while(1==1)
 	{
 		GPIO_SetBit(GPIOA, PIN5);					//点亮LED
-		for(i = 0; i < SystemCoreClock/8; i++);
+		SW_DelayMS(500);
 		GPIO_ClrBit(GPIOA, PIN5);					//熄灭LED
 		
 		EnterSleepMode();

@@ -4,7 +4,6 @@ RTC_AlarmStructure RTC_AlarmStruct;
 
 int main(void)
 {
-	uint32_t i;
 	RTC_InitStructure RTC_initStruct;
 	
 	SystemInit();
@@ -12,7 +11,7 @@ int main(void)
 	GPIO_Init(GPIOA, PIN6, 1, 0, 0, 0);
 	GPIO_Init(GPIOA, PIN5, 1, 0, 0, 0);				//接 LED，指示程序执行状态
 	GPIO_SetBit(GPIOA, PIN5);						//点亮LED
-	for(i = 0; i < SystemCoreClock/2; i++);			//延时，防止上电后SWD立即切掉无法下载程序
+	SW_DelayMS(2000);			//延时，防止上电后SWD立即切掉无法下载程序
 	
 	RTC_initStruct.clksrc = RTC_CLKSRC_LRC32K;
 	RTC_initStruct.Year = 2016;
@@ -39,7 +38,7 @@ int main(void)
 	while(1==1)
 	{
 		GPIO_SetBit(GPIOA, PIN5);					//点亮LED
-		for(i = 0; i < SystemCoreClock/8; i++);
+		SW_DelayMS(500);
 		GPIO_ClrBit(GPIOA, PIN5);					//熄灭LED
 		
 		EnterSleepMode();

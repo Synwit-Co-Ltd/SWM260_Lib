@@ -70,7 +70,7 @@ int main(void)
 
 nextloop:
 		I2C_Stop(I2C4);
-		for(i = 0; i < 4000000; i++) ;
+		SW_DelayMS(1000);
 	}
 }
 

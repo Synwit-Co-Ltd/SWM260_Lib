@@ -3,9 +3,7 @@
 void SerialInit(void);
 
 int main(void)
-{	
-	uint32_t i;
-	
+{
 	SystemInit();
 	
 	SerialInit();
@@ -21,7 +19,7 @@ int main(void)
 	{
 		printf("ACMP0->CMP0OUT = %d\r\n", (SYS->ACMPSR & SYS_ACMPSR_CMP0OUT_Msk) ? 1 : 0);
 		
-		for(i = 0; i < SystemCoreClock/10; i++) __NOP();
+		SW_DelayMS(200);
 	}
 }
 

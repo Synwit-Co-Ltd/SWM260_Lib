@@ -46,7 +46,7 @@ int main(void)
 		for(i = 0; i < 16; i++) printf("%d, ", rxbuff[i]);
 		printf("\r\n\r\n");
 		
-		for(i = 0; i < SystemCoreClock/4; i++);
+		SW_DelayMS(1000);
 	}
 }
 
