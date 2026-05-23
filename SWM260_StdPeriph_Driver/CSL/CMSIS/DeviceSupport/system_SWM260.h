@@ -30,6 +30,10 @@ extern void switchTo32KHz(void);
 extern void switchToXTAL_32K(void);
 
 
+void SW_DelayUS(uint32_t us);
+void SW_DelayMS(uint32_t ms);
+
+
 #ifdef __cplusplus
 }
 #endif

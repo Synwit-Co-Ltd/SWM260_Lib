@@ -334,3 +334,20 @@ void switchToXTAL_32K(void)
 
 	SYS->CLKSEL &=~(1 << SYS_CLKSEL_SYS_Pos);		//SYS <= XTAL_32K
 }
+
+
+void SW_DelayUS(uint32_t us)
+{
+	int i;
+	
+	us = CyclesPerUs * us / 4;
+	
+	for(i = 0; i < us; i++) __NOP();
+}
+
+void SW_DelayMS(uint32_t ms)
+{
+	int i;
+	
+	for(i = 0; i < ms; i++) SW_DelayUS(1000);
+}
